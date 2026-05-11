@@ -25,7 +25,7 @@ A modern full-stack Employee Management System built using Flask, SQLite, HTML, 
 ![Login Page](screenshots/LOGIN_PAGE.png)
 
 ### Dashboard
-![Dashboard](screenshots/DASHBOARD_DARk.png)
+![Dashboard](screenshots/DASHBOARD.png)
 
 ### Delete Confirmation Modal
 ![Delete Modal](screenshots/DELETE_POPUP.png)
