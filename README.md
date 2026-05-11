@@ -21,6 +21,20 @@ A modern full-stack Employee Management System built using Flask, SQLite, HTML, 
 
 ## Project Screenshots
 
+## Project Screenshots
+
+### Admin Login
+![Login Page](screenshots/LOGIN PAGE.png)
+
+### Dashboard
+![Dashboard](screenshots/DASHBOARD_DARk.png)
+
+### Delete Confirmation Modal
+![Delete Modal](screenshots/DELETE_POPUP.png)
+
+### Secure Database Console
+![Database Console](screenshots/DB_CONSOLE.png)
+
 ## Technologies Used
 
 - Python
