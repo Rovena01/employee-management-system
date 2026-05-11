@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Management System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="header-top">
+      <div>
+  <p class="tag">Flask + SQLite Project</p>
+  <h1>Employee Management System</h1>
+  <p class="subtitle">
+    Add, view, update, delete, and search employee records using a full-stack web app.
+  </p>
+</div>
+
+<button id="themeToggle">
+  🌙
+</button>
+    </header>
+
+    <section class="stats-grid">
+  <div class="stat-card">
+    <p>Total Employees</p>
+    <h2 id="totalEmployees">0</h2>
+  </div>
+
+  <div class="stat-card">
+    <p>Departments</p>
+    <h2 id="totalDepartments">0</h2>
+  </div>
+
+  <div class="stat-card">
+    <p>Average Salary</p>
+    <h2 id="averageSalary">₹0</h2>
+  </div>
+</section>
+
+<section class="card database-card">
+
+  <div class="database-header">
+    <div>
+      <p class="tag">System Information</p>
+      <h2>Database Layer</h2>
+      <div>
+      <p class="tag">System Information</p>
+      <h2>Database Layer
+        <a href="/database" class="nav-btn">
+  Open Secure Console
+</a>
+      </h2>
+    </div>
+    </div>
+
+    <div class="db-status">
+      ● Connected
+    </div>
+  </div>
+
+  <div class="database-grid">
+
+    <div class="db-item">
+      <span>Database</span>
+      <strong>SQLite</strong>
+    </div>
+
+    <div class="db-item">
+      <span>Table</span>
+      <strong>employees</strong>
+    </div>
+
+    <div class="db-item">
+      <span>Access Level</span>
+      <strong>Admin Protected</strong>
+    </div>
+
+    <div class="db-item">
+      <span>Backend</span>
+      <strong>Flask REST API</strong>
+    </div>
+
+  </div>
+
+</section>
+
+    <section class="card form-card">
+      <h2>Add Employee</h2>
+
+      <form id="employeeForm">
+        <input type="text" id="name" placeholder="Employee Name" required />
+        <input type="text" id="department" placeholder="Department" required />
+        <input type="number" id="salary" placeholder="Salary" required />
+        <button type="submit" id="submitBtn">Add Employee</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="table-header">
+        <h2>Employee Records</h2>
+
+        <div class="table-actions">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search employee or department..."
+          />
+
+          <button onclick="loadEmployees()" class="refresh-btn">
+            Refresh
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Salary</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="employeeTable">
+            <!-- Employees will appear here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div class="modal-overlay" id="deleteModal">
+  <div class="modal-box">
+    <h2>Delete Employee?</h2>
+    <p>Are you sure you want to delete this employee record?</p>
+
+    <div class="modal-actions">
+      <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+      <button class="delete-btn" onclick="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+
+  <div id="toast"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

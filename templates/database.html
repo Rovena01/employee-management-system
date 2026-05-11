@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Database Console</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header-top">
+
+      <div>
+        <p class="tag">Secure Admin Access</p>
+
+        <h1>Database Console</h1>
+
+        <p class="subtitle">
+          Internal database monitoring dashboard for authorized administrators.
+        </p>
+      </div>
+
+      <div class="table-actions">
+
+  <button id="themeToggle">
+    🌙
+  </button>
+  <a href="/export" class="nav-btn">
+  Export CSV
+</a>
+
+  <a href="/" class="nav-btn">
+    Dashboard
+  </a>
+
+  <a href="/logout" class="logout-btn">
+    Logout
+  </a>
+
+</div>
+
+    </header>
+
+    <section class="stats-grid">
+
+      <div class="stat-card">
+        <p>Database</p>
+        <h2>SQLite</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Total Records</p>
+        <h2>{{ total_records }}</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Access</p>
+        <h2>Verified</h2>
+      </div>
+
+    </section>
+
+    <section class="card database-card">
+
+      <div class="database-header">
+
+        <div>
+          <p class="tag">System Status</p>
+          <h2>Database Layer</h2>
+        </div>
+
+        <div class="db-status">
+          ● Connected
+        </div>
+
+      </div>
+
+      <div class="database-grid">
+
+        <div class="db-item">
+          <span>Database Type</span>
+          <strong>SQLite</strong>
+        </div>
+
+        <div class="db-item">
+          <span>Employees Table</span>
+          <strong>Active</strong>
+        </div>
+
+        <div class="db-item">
+          <span>Backend API</span>
+          <strong>Flask REST</strong>
+        </div>
+
+        <div class="db-item">
+          <span>Authentication</span>
+          <strong>Admin Protected</strong>
+        </div>
+
+      </div>
+
+    </section>
+    <section class="card">
+
+  <div class="database-header">
+
+    <div>
+      <p class="tag">Protected Records</p>
+      <h2>Employee Database Table</h2>
+    </div>
+
+    <div class="db-status">
+      ● Live Records
+    </div>
+
+  </div>
+
+  <div class="table-wrapper">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {% for employee in employees %}
+
+        <tr>
+
+          <td>
+            EMP-{{ "%03d"|format(employee[0]) }}
+          </td>
+
+          <td>{{ employee[1] }}</td>
+
+          <td>{{ employee[2] }}</td>
+
+          <td>₹{{ employee[3] }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+  </div>
+
+  <script>
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function () {
+
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    themeToggle.textContent = "☀️";
+  }
+
+  else {
+    themeToggle.textContent = "🌙";
+  }
+
+});
+
+</script>
+
+</body>
+</html>
