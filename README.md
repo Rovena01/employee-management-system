@@ -1,3 +1,7 @@
+## Live Demo
+
+[Open Live Project](https://employee-management-system-018z.onrender.com)
+
 # Employee Management System
 
 A modern full-stack Employee Management System built using Flask, SQLite, HTML, CSS, and JavaScript.
@@ -14,6 +18,8 @@ A modern full-stack Employee Management System built using Flask, SQLite, HTML, 
 - Dark / Light Theme Toggle
 - Toast Notifications
 - Delete Confirmation Modal
+
+## Project Screenshots
 
 ## Technologies Used
 
